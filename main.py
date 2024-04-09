@@ -16,9 +16,13 @@ pygame.display.set_icon(icon)
 #player
 playerImg = pygame.image.load("Resources/player.png")
 
-#player Position
-playerX = 400
-playerY = 500
+#player Position => the values are tweaked considering the size of image
+playerX = 370 #near 400 for middle of window
+playerY = 480 #near 500 for lower side in the window
+
+def player() : 
+    screen.blit(playerImg, (playerX,playerY))
+
 
 running = True; 
 #Game Loop 
@@ -28,5 +32,9 @@ while running:
             running = False
     
     #RGB
-    screen.fill( (255,5,255) )
+    screen.fill( (0,0,0) )
+
+    #should be called after fill method other wise, player would be below the 
+    player()
+
     pygame.display.update()
