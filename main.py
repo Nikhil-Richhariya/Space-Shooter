@@ -1,4 +1,5 @@
 import pygame
+import random
 
 #initialized the pygame 
 pygame.init()
@@ -22,10 +23,21 @@ playerY = 480 #near 500 for lower side in the window
 
 changeInX = 0
 
-speed = 0.1 # => control speed of movement
+#Enemy
+EnemyImg_1 = pygame.image.load("Resources/alien1.png")
+
+EnemyX_1 = random.randint(0,750)
+EnemyY_1 = random.randint(50, 150) 
+
+changeInEnemy_1 = 0
+
+speed = 0.3 # => control speed of movement
 
 def player(x,y): 
     screen.blit(playerImg, (x,y))
+
+def enemy(x,y): 
+    screen.blit(EnemyImg_1, (x,y))
 
 def movePlayerLeft():
     global playerX
@@ -68,5 +80,6 @@ while running:
 
     #should be called after fill method other wise, player would be below the 
     player(playerX,playerY)
+    enemy(EnemyX_1,EnemyY_1)
 
     pygame.display.update()
